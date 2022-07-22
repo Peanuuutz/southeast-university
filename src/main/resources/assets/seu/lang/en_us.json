@@ -1,0 +1,12 @@
+{
+  "itemGroup.seu.general": "Southeast University",
+
+  "block.seu.vehicle_block": "Vehicle Block",
+
+  "item.seu.vehicle_block": "Vehicle Block",
+
+  "entity.seu.bike": "Bike",
+
+  "message.seu.load_succeed": "Successfully load config",
+  "message.seu.load_fail": "Error occurred while loading config, please refer to console"
+}

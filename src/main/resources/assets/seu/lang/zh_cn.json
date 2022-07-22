@@ -1,0 +1,12 @@
+{
+  "itemGroup.seu.general": "东南大学",
+
+  "block.seu.vehicle_block": "载具方块",
+
+  "item.seu.vehicle_block": "载具方块",
+
+  "entity.seu.bike": "自行车",
+
+  "message.seu.load_succeed": "成功载入配置",
+  "message.seu.load_fail": "载入配置时发生错误，请查看控制台"
+}

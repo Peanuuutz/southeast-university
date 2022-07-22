@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "seu:block/vehicle_block" }
+  }
+}

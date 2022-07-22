@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "southeast-university",
+  "version": "${version}",
+  "name": "Southeast University",
+  "description": "Various objects around Southeast University Minecraft project",
+  "authors": [
+    "Peanuuutz"
+  ],
+  "contact": {
+    "issues": "https://github.com/Peanuuutz/southeast-university/issues",
+    "sources": "https://github.com/Peanuuutz/southeast-university"
+  },
+  "license": "GPLv3",
+  "icon": "assets/seu/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      {
+        "adapter": "kotlin",
+        "value": "net.peanuuutz.seu.Seu"
+      }
+    ],
+    "client": [
+      {
+        "adapter": "kotlin",
+        "value": "net.peanuuutz.seu.client.SeuClient"
+      }
+    ]
+  },
+  "mixins": [
+    "seu.mixins.json"
+  ],
+  "accessWidener": "seu.accesswidener",
+  "depends": {
+    "fabricloader": ">=0.14.8",
+    "fabric": "*",
+    "fabric-language-kotlin": ">=1.8.1+kotlin.1.7.0",
+    "minecraft": ">=1.16.2"
+  }
+}
