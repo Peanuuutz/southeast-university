@@ -227,14 +227,12 @@ abstract class VehicleEntity(
     final override fun interact(player: PlayerEntity, hand: Hand): ActionResult {
         return when {
             player.shouldCancelInteraction() -> ActionResult.PASS
-            hasPassengers() -> {
+            hasPassengers().not() -> {
                 if (world.isClient.not()) {
                     player.startRiding(this)
                 }
                 ActionResult.success(world.isClient)
             }
-            world.isClient -> ActionResult.SUCCESS
-            player.startRiding(this) -> ActionResult.CONSUME
             else -> ActionResult.PASS
         }
     }
