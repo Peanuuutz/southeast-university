@@ -24,15 +24,6 @@ import net.peanuuutz.seu.SeuConfigOwner
 class BikeEntity(
     world: World
 ) : VehicleEntity(world, BIKE_ENTITY) {
-    constructor(
-        world: World,
-        x: Double,
-        y: Double,
-        z: Double
-    ) : this(world) {
-        setPosition(x, y, z)
-    }
-
     override val uniqueProperties: UniqueVehicleProperties
         get() = SeuConfigOwner.config.uniqueVehicleProperties[ID] ?: DEFAULT_PROPERTIES
 

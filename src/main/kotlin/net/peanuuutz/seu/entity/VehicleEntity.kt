@@ -218,15 +218,21 @@ abstract class VehicleEntity(
 
     final override fun canClimb(): Boolean = false
 
-    final override fun collidesWith(other: Entity): Boolean { // This is for collision
+    final override fun collidesWith(other: Entity): Boolean { // NOTE: this is for collision
         return (other.isCollidable || other.isPushable) && isConnectedThroughVehicle(other).not()
     }
 
-    final override fun collides(): Boolean = !removed // This is for ray-casting
+    final override fun collides(): Boolean = !removed // NOTE: this is for ray-casting
 
     final override fun interact(player: PlayerEntity, hand: Hand): ActionResult {
         return when {
-            player.isSneaking -> ActionResult.PASS // TODO Convert to block
+            player.shouldCancelInteraction() -> ActionResult.PASS
+            hasPassengers() -> {
+                if (world.isClient.not()) {
+                    player.startRiding(this)
+                }
+                ActionResult.success(world.isClient)
+            }
             world.isClient -> ActionResult.SUCCESS
             player.startRiding(this) -> ActionResult.CONSUME
             else -> ActionResult.PASS

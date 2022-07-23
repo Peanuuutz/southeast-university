@@ -41,11 +41,12 @@ public class MixinClientPlayNetworkHandler {
         double z = packet.getZ();
         EntityType<?> entityType = packet.getEntityTypeId();
         if (entityType == SeuEntities.BIKE_ENTITY) {
-            vehicle = new BikeEntity(world, x, y, z);
+            vehicle = new BikeEntity(world);
         } else {
             vehicle = null;
         }
         if (vehicle != null) {
+            vehicle.setPosition(x, y, z);
             vehicle.updateTrackedPosition(x, y, z);
             vehicle.refreshPositionAfterTeleport(x, y, z);
             vehicle.pitch = packet.getPitch() * 360 / 256f;
